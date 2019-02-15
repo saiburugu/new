@@ -1,0 +1,81 @@
+package phonebook;
+
+import java.util.ArrayList;
+
+public class Friends {
+	private String name;
+	
+	public Friends(String name) {
+		this.name=name;
+		
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	private ArrayList<String> friendNames=new ArrayList<String>();
+	private  ArrayList<String> phoneNumbers=new ArrayList();
+	
+	
+	public boolean addFriend(String name,String number) {
+		friendNames.add(name);
+		phoneNumbers.add(number);
+		return true;
+		}
+	
+
+	public boolean modifyNumber(String name,String phoneNum) {
+		for(int i=0;i<friendNames.size();i++) {
+			if(name.equals(friendNames.get(i))) {
+				phoneNumbers.set(i,phoneNum);
+				return true;
+			}
+		}
+		return false;
+		
+	}
+	
+	public String fndSearch(String name) {
+		for(int i=0;i<friendNames.size();i++) {
+			if(name.equals(friendNames.get(i))) {
+			 return phoneNumbers.get(i);
+			}
+		}
+		return null;
+		
+	}
+
+}
+
+
+
+package phonebook;
+
+public class Phonebook {
+
+	public static void main(String[] args) {
+		Friends x=new Friends("kiran");
+		x.addFriend("sai","1234");
+		x.addFriend("raja","5678");
+		x.addFriend("rishi","9123");
+		x.addFriend("pooja","8765");
+		x.addFriend("ram","8734");
+		x.addFriend("revanth","7348");
+		
+		
+		String find=x.fndSearch("pooja");
+		if(find!=null) {
+			System.out.println("phone number is:  "+find);
+		}
+		
+		else {
+			
+			System.out.println("friend not found");
+		}
+}
+}

@@ -1,0 +1,25 @@
+package com.Phonebook;
+
+public class Number {
+
+	public static void main(String[] args) {
+		Phonebook x=new Phonebook("kiran");
+		x.addFriend("sai","1234");
+		x.addFriend("amar","5678");
+		x.addFriend("meharaj","9123");
+		x.addFriend("suresh","8765");
+		x.addFriend("mahesh","8734");
+		x.addFriend("shoban","7348");
+		
+		
+		String find=x.fndSearch("meharaj");
+		if(find!=null) {
+			System.out.println("phone number is:  "+find);
+		}
+		
+		else {
+			
+			System.out.println("friend not found");
+		}
+}
+}
